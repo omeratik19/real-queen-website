@@ -3,29 +3,61 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>İletişim & Teslimat | Real Queen Boutique - K.K.T.C'de Hızlı Teslimat</title>
-    <meta name="description" content="Real Queen Boutique iletişim bilgileri. Lefkoşa & Girne'de ertesi gün teslimat. K.K.T.C'de 36-46 beden kıyafetler için WhatsApp ve Instagram." />
-    <meta name="keywords" content="K.K.T.C, Kuzey Kıbrıs, Real Queen Boutique, iletişim, teslimat, Lefkoşa, Girne, WhatsApp, Instagram, 36-46 beden" />
+    <title>
+      İletişim & Teslimat | Real Queen Boutique - K.K.T.C'de Hızlı Teslimat
+    </title>
+    <meta
+      name="description"
+      content="Real Queen Boutique iletişim bilgileri. Lefkoşa & Girne'de ertesi gün teslimat. K.K.T.C'de 36-46 beden kıyafetler için WhatsApp ve Instagram."
+    />
+    <meta
+      name="keywords"
+      content="K.K.T.C, Kuzey Kıbrıs, Real Queen Boutique, iletişim, teslimat, Lefkoşa, Girne, WhatsApp, Instagram, 36-46 beden"
+    />
     <meta name="author" content="Real Queen Boutique" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="Turkish" />
     <meta name="geo.region" content="TR-NC" />
     <meta name="geo.placename" content="Kuzey Kıbrıs" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://realqueenboutique.com/iletisim.html" />
-    <meta property="og:title" content="İletişim & Teslimat | Real Queen Boutique" />
-    <meta property="og:description" content="Real Queen Boutique iletişim bilgileri. Lefkoşa & Girne'de hızlı teslimat." />
-    <meta property="og:image" content="https://realqueenboutique.com/assets/img/anasayfa/Yeni Sezon_ Hep ve Sonsuza Kadar.png" />
-    
+    <meta
+      property="og:url"
+      content="https://realqueenboutique.com/iletisim.html"
+    />
+    <meta
+      property="og:title"
+      content="İletişim & Teslimat | Real Queen Boutique"
+    />
+    <meta
+      property="og:description"
+      content="Real Queen Boutique iletişim bilgileri. Lefkoşa & Girne'de hızlı teslimat."
+    />
+    <meta
+      property="og:image"
+      content="https://realqueenboutique.com/assets/img/anasayfa/Yeni Sezon_ Hep ve Sonsuza Kadar.png"
+    />
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://realqueenboutique.com/iletisim.html" />
-    <meta property="twitter:title" content="İletişim & Teslimat | Real Queen Boutique" />
-    <meta property="twitter:description" content="Real Queen Boutique iletişim bilgileri. Lefkoşa & Girne'de hızlı teslimat." />
-    <meta property="twitter:image" content="https://realqueenboutique.com/assets/img/anasayfa/Yeni Sezon_ Hep ve Sonsuza Kadar.png" />
-    
+    <meta
+      property="twitter:url"
+      content="https://realqueenboutique.com/iletisim.html"
+    />
+    <meta
+      property="twitter:title"
+      content="İletişim & Teslimat | Real Queen Boutique"
+    />
+    <meta
+      property="twitter:description"
+      content="Real Queen Boutique iletişim bilgileri. Lefkoşa & Girne'de hızlı teslimat."
+    />
+    <meta
+      property="twitter:image"
+      content="https://realqueenboutique.com/assets/img/anasayfa/Yeni Sezon_ Hep ve Sonsuza Kadar.png"
+    />
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://realqueenboutique.com/iletisim.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -300,6 +332,16 @@
         height: 18px;
       }
 
+      /* Mobile Menu Button */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--accent);
+      }
+
       /* Footer */
       .footer {
         margin-top: 40px;
@@ -311,6 +353,46 @@
 
       /* === Additional Responsive ==== */
       @media (max-width: 768px) {
+        .header .inner {
+          height: 60px;
+          padding: 0 16px;
+        }
+        .brand {
+          font-size: 20px;
+        }
+        .nav {
+          position: fixed;
+          top: 60px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 60px);
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 40px 20px;
+          transition: left 0.3s ease;
+          z-index: 99;
+        }
+        .nav.nav-open {
+          left: 0;
+        }
+        .nav-link {
+          font-size: 18px;
+          padding: 15px 0;
+          border-bottom: 1px solid var(--rose);
+          width: 100%;
+          text-align: center;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .ig-btn {
+          margin-top: 20px;
+          width: 100%;
+          justify-content: center;
+        }
+
         .hero h1 {
           font-size: 32px;
         }
@@ -367,6 +449,7 @@
     <header class="header">
       <div class="inner container">
         <div class="brand">Real Queen Boutique</div>
+        <button class="mobile-menu-btn" aria-label="Menüyü Aç/Kapat">☰</button>
         <nav class="nav">
           <a href="anasayfa.html" class="nav-link">Ana Sayfa</a>
           <a href="products.html" class="nav-link">Ürünler</a>
@@ -481,6 +564,17 @@
       }
 
       document.getElementById("igTop").onclick = openIG;
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const nav = document.querySelector('.nav');
+      
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          nav.classList.toggle('nav-open');
+          mobileMenuBtn.classList.toggle('active');
+        });
+      }
     </script>
 
     <footer class="footer">

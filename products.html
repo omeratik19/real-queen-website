@@ -3,29 +3,62 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>36-46 Beden Elbiseler | Real Queen Boutique - K.K.T.C'de Büyük Beden Kıyafetler</title>
-    <meta name="description" content="K.K.T.C'de 36-46 beden aralığında şık elbiseler, setler ve kıyafetler. Lefkoşa & Girne'de hızlı teslimat. Büyük beden moda." />
-    <meta name="keywords" content="K.K.T.C, Kuzey Kıbrıs, 36-46 beden, büyük beden, elbise, kıyafet, Lefkoşa, Girne, teslimat, boutique, moda, kadın giyim" />
+    <title>
+      36-46 Beden Elbiseler | Real Queen Boutique - K.K.T.C'de Büyük Beden
+      Kıyafetler
+    </title>
+    <meta
+      name="description"
+      content="K.K.T.C'de 36-46 beden aralığında şık elbiseler, setler ve kıyafetler. Lefkoşa & Girne'de hızlı teslimat. Büyük beden moda."
+    />
+    <meta
+      name="keywords"
+      content="K.K.T.C, Kuzey Kıbrıs, 36-46 beden, büyük beden, elbise, kıyafet, Lefkoşa, Girne, teslimat, boutique, moda, kadın giyim"
+    />
     <meta name="author" content="Real Queen Boutique" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="Turkish" />
     <meta name="geo.region" content="TR-NC" />
     <meta name="geo.placename" content="Kuzey Kıbrıs" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://realqueenboutique.com/products.html" />
-    <meta property="og:title" content="36-46 Beden Elbiseler | Real Queen Boutique" />
-    <meta property="og:description" content="K.K.T.C'de 36-46 beden aralığında şık elbiseler ve kıyafetler." />
-    <meta property="og:image" content="https://realqueenboutique.com/assets/img/36-38/ürün1.jpeg" />
-    
+    <meta
+      property="og:url"
+      content="https://realqueenboutique.com/products.html"
+    />
+    <meta
+      property="og:title"
+      content="36-46 Beden Elbiseler | Real Queen Boutique"
+    />
+    <meta
+      property="og:description"
+      content="K.K.T.C'de 36-46 beden aralığında şık elbiseler ve kıyafetler."
+    />
+    <meta
+      property="og:image"
+      content="https://realqueenboutique.com/assets/img/36-38/ürün1.jpeg"
+    />
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://realqueenboutique.com/products.html" />
-    <meta property="twitter:title" content="36-46 Beden Elbiseler | Real Queen Boutique" />
-    <meta property="twitter:description" content="K.K.T.C'de 36-46 beden aralığında şık elbiseler ve kıyafetler." />
-    <meta property="twitter:image" content="https://realqueenboutique.com/assets/img/36-38/ürün1.jpeg" />
-    
+    <meta
+      property="twitter:url"
+      content="https://realqueenboutique.com/products.html"
+    />
+    <meta
+      property="twitter:title"
+      content="36-46 Beden Elbiseler | Real Queen Boutique"
+    />
+    <meta
+      property="twitter:description"
+      content="K.K.T.C'de 36-46 beden aralığında şık elbiseler ve kıyafetler."
+    />
+    <meta
+      property="twitter:image"
+      content="https://realqueenboutique.com/assets/img/36-38/ürün1.jpeg"
+    />
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://realqueenboutique.com/products.html" />
 
@@ -410,7 +443,10 @@
 
       /* ==== Touch-friendly Elements ==== */
       @media (hover: none) and (pointer: coarse) {
-        .btn, .ig-btn, .nav-link, .card {
+        .btn,
+        .ig-btn,
+        .nav-link,
+        .card {
           min-height: 44px;
         }
         .card {
@@ -489,6 +525,7 @@
     <header class="topbar">
       <div class="inner container">
         <div class="brand">Real Queen Boutique</div>
+        <button class="mobile-menu-btn" aria-label="Menüyü Aç/Kapat">☰</button>
         <nav class="nav">
           <a href="anasayfa.html" class="nav-link">← Ana Sayfa</a>
           <a href="iletisim.html" class="nav-link">İletişim</a>
@@ -773,6 +810,17 @@
       /* ===== Eğer "Ürünler" butonundan gelme animasyonu da olsun istiyorsan
    bu sayfaya geçmeden önce body'ye .leaving ekleyip burada karşılayacak
    bir fade-in de yazabiliriz. Şimdilik açılış intro bunu karşılıyor. ===== */
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const nav = document.querySelector('.nav');
+      
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          nav.classList.toggle('nav-open');
+          mobileMenuBtn.classList.toggle('active');
+        });
+      }
     </script>
 
     <footer class="footer">
