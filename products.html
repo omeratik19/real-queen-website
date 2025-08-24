@@ -3,7 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Ürünler — Real Queen Boutique</title>
+    <title>36-46 Beden Elbiseler | Real Queen Boutique - K.K.T.C'de Büyük Beden Kıyafetler</title>
+    <meta name="description" content="K.K.T.C'de 36-46 beden aralığında şık elbiseler, setler ve kıyafetler. Lefkoşa & Girne'de hızlı teslimat. Büyük beden moda." />
+    <meta name="keywords" content="K.K.T.C, Kuzey Kıbrıs, 36-46 beden, büyük beden, elbise, kıyafet, Lefkoşa, Girne, teslimat, boutique, moda, kadın giyim" />
+    <meta name="author" content="Real Queen Boutique" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Turkish" />
+    <meta name="geo.region" content="TR-NC" />
+    <meta name="geo.placename" content="Kuzey Kıbrıs" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://realqueenboutique.com/products.html" />
+    <meta property="og:title" content="36-46 Beden Elbiseler | Real Queen Boutique" />
+    <meta property="og:description" content="K.K.T.C'de 36-46 beden aralığında şık elbiseler ve kıyafetler." />
+    <meta property="og:image" content="https://realqueenboutique.com/assets/img/36-38/ürün1.jpeg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://realqueenboutique.com/products.html" />
+    <meta property="twitter:title" content="36-46 Beden Elbiseler | Real Queen Boutique" />
+    <meta property="twitter:description" content="K.K.T.C'de 36-46 beden aralığında şık elbiseler ve kıyafetler." />
+    <meta property="twitter:image" content="https://realqueenboutique.com/assets/img/36-38/ürün1.jpeg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://realqueenboutique.com/products.html" />
 
     <!-- Fontlar (ana sayfadakiyle aynı) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -274,8 +298,124 @@
       }
       .actions {
         display: flex;
-        gap: 10px;
-        margin-top: 8px;
+      }
+
+      /* ==== Responsive Design ==== */
+      @media (max-width: 1024px) {
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+        }
+        .sheet {
+          grid-template-columns: 1fr;
+          width: min(600px, 95vw);
+        }
+        .sheet .gallery img {
+          aspect-ratio: 4/3;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+        .header .inner {
+          height: 60px;
+        }
+        .brand {
+          font-size: 20px;
+        }
+        .nav {
+          position: fixed;
+          top: 60px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 60px);
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 40px 20px;
+          transition: left 0.3s ease;
+          z-index: 100;
+        }
+        .nav.nav-open {
+          left: 0;
+        }
+        .nav-link {
+          font-size: 18px;
+          padding: 15px 0;
+          border-bottom: 1px solid var(--rose);
+          width: 100%;
+          text-align: center;
+        }
+        .mobile-menu-btn {
+          display: block;
+          background: none;
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+          color: var(--accent);
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .page-head h2 {
+          font-size: 28px;
+        }
+        .sheet {
+          width: 95vw;
+          margin: 20px;
+        }
+        .sheet .info {
+          padding: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .page-head h2 {
+          font-size: 24px;
+        }
+        .card .meta {
+          padding: 8px 10px;
+        }
+        .card .t {
+          font-size: 13px;
+        }
+        .btn {
+          padding: 10px 16px;
+          font-size: 14px;
+        }
+        .sheet {
+          width: 98vw;
+          margin: 10px;
+        }
+        .sheet .info {
+          padding: 14px;
+        }
+      }
+
+      /* ==== Mobile Menu Button ==== */
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      /* ==== Touch-friendly Elements ==== */
+      @media (hover: none) and (pointer: coarse) {
+        .btn, .ig-btn, .nav-link, .card {
+          min-height: 44px;
+        }
+        .card {
+          cursor: pointer;
+        }
       }
       .x {
         position: absolute;

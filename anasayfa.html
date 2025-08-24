@@ -3,11 +3,37 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Real Queen Boutique — 36–46 Her Bedene Şıklık</title>
+    <title>Real Queen Boutique - K.K.T.C'de 36-46 Beden Elbiseler | Lefkoşa & Girne Hızlı Teslimat</title>
     <meta
       name="description"
-      content="36–46 beden aralığında şık elbiseler ve setler. Lefkoşa & Girne hızlı teslim."
+      content="K.K.T.C'de 36-46 beden aralığında şık elbiseler, setler ve kıyafetler. Lefkoşa & Girne'de ertesi gün teslimat. Kuzey Kıbrıs'ın en büyük e-kıyafet sayfası."
     />
+    <meta name="keywords" content="K.K.T.C, Kuzey Kıbrıs, elbise, kıyafet, 36-46 beden, Lefkoşa, Girne, teslimat, boutique, moda, kadın giyim" />
+    <meta name="author" content="Real Queen Boutique" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Turkish" />
+    <meta name="geo.region" content="TR-NC" />
+    <meta name="geo.placename" content="Kuzey Kıbrıs" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://realqueenboutique.com/" />
+    <meta property="og:title" content="Real Queen Boutique - K.K.T.C'de 36-46 Beden Elbiseler" />
+    <meta property="og:description" content="K.K.T.C'de 36-46 beden aralığında şık elbiseler ve kıyafetler. Lefkoşa & Girne'de hızlı teslimat." />
+    <meta property="og:image" content="https://realqueenboutique.com/assets/img/anasayfa/Yeni Sezon_ Hep ve Sonsuza Kadar.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://realqueenboutique.com/" />
+    <meta property="twitter:title" content="Real Queen Boutique - K.K.T.C'de 36-46 Beden Elbiseler" />
+    <meta property="twitter:description" content="K.K.T.C'de 36-46 beden aralığında şık elbiseler ve kıyafetler." />
+    <meta property="twitter:image" content="https://realqueenboutique.com/assets/img/anasayfa/Yeni Sezon_ Hep ve Sonsuza Kadar.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://realqueenboutique.com/" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap"
@@ -342,6 +368,71 @@
           font-size: 14px;
         }
       }
+      
+      @media (max-width: 768px) {
+        .header .inner {
+          height: 60px;
+        }
+        .brand {
+          font-size: 20px;
+        }
+        .nav {
+          position: fixed;
+          top: 60px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 60px);
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 40px 20px;
+          transition: left 0.3s ease;
+          z-index: 100;
+        }
+        .nav.nav-open {
+          left: 0;
+        }
+        .nav-link {
+          font-size: 18px;
+          padding: 15px 0;
+          border-bottom: 1px solid var(--rose);
+          width: 100%;
+          text-align: center;
+        }
+        .mobile-menu-btn {
+          display: block;
+          background: none;
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+          color: var(--accent);
+        }
+        .hero {
+          padding: 40px 0;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+        .hero-img {
+          max-width: 100%;
+          height: auto;
+        }
+        .grid3 {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .sec-title {
+          font-size: 28px;
+        }
+        .testimonial {
+          padding: 20px;
+        }
+      }
+      
       @media (max-width: 720px) {
         .grid {
           grid-template-columns: repeat(2, 1fr);
@@ -369,6 +460,50 @@
           font-size: 13px;
         }
       }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        .hero h1 {
+          font-size: 32px;
+        }
+        .hero p {
+          font-size: 15px;
+        }
+        .sec-title {
+          font-size: 24px;
+        }
+        .btn {
+          padding: 12px 20px;
+          font-size: 14px;
+        }
+        .ig-btn {
+          padding: 8px 12px;
+          font-size: 14px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* === Mobile Menu Button === */
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      /* === Touch-friendly Elements === */
+      @media (hover: none) and (pointer: coarse) {
+        .btn, .ig-btn, .nav-link {
+          min-height: 44px;
+          min-width: 44px;
+        }
+        .nav-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -376,6 +511,7 @@
     <header class="header">
       <div class="inner container">
         <div class="brand">Real Queen Boutique</div>
+        <button class="mobile-menu-btn" aria-label="Menüyü Aç/Kapat">☰</button>
         <nav class="nav">
           <a href="anasayfa..html" class="nav-link">Ana Sayfa</a>
           <a href="products.html" class="nav-link">Ürünler</a>
@@ -647,6 +783,17 @@
       document
         .querySelectorAll("[data-animate]")
         .forEach((el) => observer.observe(el));
+
+      /* === Responsive Navigation === */
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const nav = document.querySelector('.nav');
+      
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          nav.classList.toggle('nav-open');
+          mobileMenuBtn.classList.toggle('active');
+        });
+      }
     </script>
   </body>
 </html>
