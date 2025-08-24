@@ -153,6 +153,17 @@
         height: 18px;
       }
 
+      /* Mobile Menu Button */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: var(--accent);
+        padding: 8px;
+      }
+
       /* Header */
       .header {
         position: sticky;
@@ -451,6 +462,7 @@
       @media (max-width: 768px) {
         .header .inner {
           height: 60px;
+          padding: 0 16px;
         }
         .brand {
           font-size: 20px;
@@ -481,11 +493,11 @@
         }
         .mobile-menu-btn {
           display: block;
-          background: none;
-          border: none;
-          font-size: 24px;
-          cursor: pointer;
-          color: var(--accent);
+        }
+        .ig-btn {
+          margin-top: 20px;
+          width: 100%;
+          justify-content: center;
         }
         .hero {
           padding: 40px 0;
@@ -496,9 +508,18 @@
         .hero p {
           font-size: 16px;
         }
+        .hero .wrap {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
         .hero-img {
           max-width: 100%;
           height: auto;
+          margin: 0 auto;
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
         }
         .grid3 {
           grid-template-columns: 1fr;
@@ -540,47 +561,7 @@
         }
       }
 
-      @media (max-width: 768px) {
-        .header .inner {
-          height: 60px;
-          padding: 0 16px;
-        }
-        .brand {
-          font-size: 20px;
-        }
-        .nav {
-          position: fixed;
-          top: 60px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 60px);
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          flex-direction: column;
-          justify-content: flex-start;
-          padding: 40px 20px;
-          transition: left 0.3s ease;
-          z-index: 99;
-        }
-        .nav.nav-open {
-          left: 0;
-        }
-        .nav-link {
-          font-size: 18px;
-          padding: 15px 0;
-          border-bottom: 1px solid var(--rose);
-          width: 100%;
-          text-align: center;
-        }
-        .mobile-menu-btn {
-          display: block;
-        }
-        .ig-btn {
-          margin-top: 20px;
-          width: 100%;
-          justify-content: center;
-        }
-      }
+
 
       @media (max-width: 480px) {
         .container {
@@ -892,13 +873,13 @@
       document.querySelectorAll(".igCard").forEach((b) => (b.onclick = openIG));
 
       // Mobile menu functionality
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-      const nav = document.querySelector('.nav');
-      
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const nav = document.querySelector(".nav");
+
       if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => {
-          nav.classList.toggle('nav-open');
-          mobileMenuBtn.classList.toggle('active');
+        mobileMenuBtn.addEventListener("click", () => {
+          nav.classList.toggle("nav-open");
+          mobileMenuBtn.classList.toggle("active");
         });
       }
 
@@ -917,8 +898,6 @@
       document
         .querySelectorAll("[data-animate]")
         .forEach((el) => observer.observe(el));
-
-
     </script>
   </body>
 </html>

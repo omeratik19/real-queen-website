@@ -206,6 +206,76 @@
         min-width: 80px;
       }
 
+      /* ==== Header ==== */
+      .topbar {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #ffe1ea;
+        z-index: 1000;
+      }
+      .topbar .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+        padding: 0 20px;
+      }
+      .brand {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--accent);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .nav-link {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      .nav-link:hover {
+        color: var(--accent);
+        background: rgba(255, 134, 163, 0.1);
+      }
+      .filter {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .filter label {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .filter select {
+        height: 40px;
+        border: 1px solid #ffd6e3;
+        border-radius: 999px;
+        padding: 0 12px;
+        background: #fff;
+        cursor: pointer;
+        min-width: 80px;
+      }
+
+      /* Mobile Menu Button */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: var(--accent);
+        padding: 8px;
+      }
+
       /* ==== Grid ==== */
       .page-head {
         padding: 18px 0 8px;
@@ -352,8 +422,9 @@
         .container {
           padding: 0 20px;
         }
-        .header .inner {
+        .topbar .inner {
           height: 60px;
+          padding: 0 16px;
         }
         .brand {
           font-size: 20px;
@@ -384,11 +455,15 @@
         }
         .mobile-menu-btn {
           display: block;
-          background: none;
-          border: none;
-          font-size: 24px;
-          cursor: pointer;
-          color: var(--accent);
+        }
+        .filter {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 8px;
+          margin-top: 20px;
+        }
+        .filter select {
+          min-width: auto;
         }
         .grid {
           grid-template-columns: repeat(2, 1fr);
@@ -812,13 +887,13 @@
    bir fade-in de yazabiliriz. Şimdilik açılış intro bunu karşılıyor. ===== */
 
       // Mobile menu functionality
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-      const nav = document.querySelector('.nav');
-      
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const nav = document.querySelector(".nav");
+
       if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => {
-          nav.classList.toggle('nav-open');
-          mobileMenuBtn.classList.toggle('active');
+        mobileMenuBtn.addEventListener("click", () => {
+          nav.classList.toggle("nav-open");
+          mobileMenuBtn.classList.toggle("active");
         });
       }
     </script>
