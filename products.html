@@ -454,7 +454,7 @@
           text-align: center;
         }
         .mobile-menu-btn {
-          display: block;
+          display: block !important;
         }
         .filter {
           flex-direction: column;
@@ -893,7 +893,9 @@
       if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener("click", () => {
           nav.classList.toggle("nav-open");
-          mobileMenuBtn.classList.toggle("active");
+          const open = nav.classList.contains("nav-open");
+          mobileMenuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+          document.body.style.overflow = open ? "hidden" : "";
         });
       }
     </script>
