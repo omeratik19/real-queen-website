@@ -870,10 +870,10 @@
       document.getElementById("igHero").onclick = openIG;
       document.querySelectorAll(".igCard").forEach((b) => (b.onclick = openIG));
 
-            // Mobile menu functionality
+      // Mobile menu functionality
       const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
       const nav = document.querySelector(".nav");
-      
+
       if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener("click", () => {
           nav.classList.toggle("nav-open");
