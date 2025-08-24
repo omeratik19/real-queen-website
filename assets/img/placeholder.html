@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placeholder Görseller</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .placeholder {
+        width: 300px;
+        height: 400px;
+        background: linear-gradient(45deg, #ffb7c8, #ffd6df);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 12px;
+        margin: 10px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Placeholder Görseller</h1>
+    <p>Bu dosyaları gerçek ürün fotoğraflarınızla değiştirin:</p>
+
+    <div class="grid">
+      <div class="placeholder">hero.jpg<br />1200x900</div>
+      <div class="placeholder">new1.jpg<br />300x400</div>
+      <div class="placeholder">new2.jpg<br />300x400</div>
+      <div class="placeholder">new3.jpg<br />300x400</div>
+      <div class="placeholder">new4.jpg<br />300x400</div>
+      <div class="placeholder">new5.jpg<br />300x400</div>
+      <div class="placeholder">new6.jpg<br />300x400</div>
+      <div class="placeholder">dress1.jpg<br />400x533</div>
+      <div class="placeholder">dress2.jpg<br />400x533</div>
+      <div class="placeholder">dress3.jpg<br />400x533</div>
+    </div>
+
+    <h2>Görsel Boyutları:</h2>
+    <ul>
+      <li><strong>hero.jpg:</strong> 1200x900 piksel (ana banner)</li>
+      <li>
+        <strong>new1.jpg - new6.jpg:</strong> 300x400 piksel (ürün kartları)
+      </li>
+      <li>
+        <strong>dress1.jpg - dress3.jpg:</strong> 400x533 piksel (elbise bölümü)
+      </li>
+    </ul>
+
+    <h2>Önerilen Format:</h2>
+    <ul>
+      <li>Format: JPG veya WebP</li>
+      <li>Kalite: %80-90 (web için optimize)</li>
+      <li>Dosya boyutu: Her görsel 100KB'den küçük olmalı</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ürünler — Real Queen Boutique</title>
+
+    <!-- Fontlar (ana sayfadakiyle aynı) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --peach: #ffe5d2;
+        --rose: #ffd6df;
+        --pink: #ffb7c8;
+        --accent: #ff86a3;
+        --ink: #222;
+        --muted: #6f6f6f;
+        --card: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Poppins, system-ui, Segoe UI, Roboto, sans-serif;
+        background: #fff;
+        color: var(--ink);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 18px;
+      }
+
+      /* ==== Giriş Efekti (şeftali-pembe narin) ==== */
+      .intro {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        z-index: 9999;
+        background: radial-gradient(
+            50% 50% at 20% 15%,
+            #fff2f7 0%,
+            transparent 60%
+          ),
+          radial-gradient(60% 60% at 80% 0%, #ffe9ef 0%, transparent 60%),
+          linear-gradient(180deg, var(--rose), var(--peach));
+        animation: introFade 0.9s ease-out 0.8s forwards;
+      }
+      .intro h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(38px, 6vw, 72px);
+        letter-spacing: 0.5px;
+        color: #8f2d4a;
+        transform: scale(0.94);
+        opacity: 0.98;
+        animation: pop 0.8s ease-out;
+      }
+      @keyframes pop {
+        from {
+          opacity: 0;
+          transform: scale(0.92);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes introFade {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      /* güvenli kaldırmak için display none */
+      .intro.done {
+        display: none;
+      }
+
+      /* ==== Üst Bar ==== */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 9;
+        background: #fff8fbf2;
+        backdrop-filter: blur(4px) saturate(120%);
+        border-bottom: 1px solid #ffe1ea;
+      }
+      .topbar .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .brand {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .nav-link {
+        color: var(--muted);
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      .nav-link:hover {
+        color: var(--accent);
+        background: rgba(255, 135, 163, 0.1);
+      }
+      .filter {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .filter label {
+        font-size: 14px;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .filter select {
+        height: 40px;
+        border: 1px solid #ffd6e3;
+        border-radius: 999px;
+        padding: 0 12px;
+        background: #fff;
+        cursor: pointer;
+        min-width: 80px;
+      }
+
+      /* ==== Grid ==== */
+      .page-head {
+        padding: 18px 0 8px;
+      }
+      .page-head h2 {
+        margin: 0;
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        padding: 16px 0 30px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid #ffe1ea;
+        border-radius: 18px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px #ff9bb02a;
+      }
+      .card img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        display: block;
+      }
+      .meta {
+        padding: 10px 12px;
+      }
+      .t {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .badge-row {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .badge {
+        font-size: 12px;
+        background: #fff;
+        border: 1px solid #ffdce6;
+        border-radius: 999px;
+        padding: 4px 8px;
+      }
+
+      /* ==== Alt CTA ==== */
+      .bottom-cta {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0 36px;
+        border-top: 1px solid #ffe1ea;
+        margin-top: 8px;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* ==== Modal ==== */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        place-items: center;
+        background: #00000055;
+        z-index: 50;
+      }
+      .modal.open {
+        display: grid;
+      }
+      .sheet {
+        width: min(880px, 92vw);
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 40px 80px #00000022;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+      .sheet .gallery {
+        background: #fff;
+      }
+      .sheet .gallery img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        display: block;
+      }
+      .sheet .info {
+        padding: 18px 18px 20px;
+      }
+      .sheet h3 {
+        margin: 0 0 6px;
+      }
+
+      .size-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 8px 0 14px;
+      }
+      .size {
+        border: 1px solid #ffd6e3;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-weight: 600;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 8px;
+      }
+      .x {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        background: #fff;
+        border: 1px solid #ffd6e3;
+        border-radius: 10px;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+
+      /* ==== Responsive ==== */
+      @media (max-width: 1100px) {
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .sheet {
+          grid-template-columns: 1fr;
+        }
+        .nav {
+          gap: 15px;
+        }
+        .nav-link {
+          padding: 6px 10px;
+          font-size: 14px;
+        }
+        .filter {
+          gap: 10px;
+        }
+        .filter select {
+          min-width: 70px;
+        }
+      }
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .nav {
+          gap: 10px;
+        }
+        .nav-link {
+          padding: 6px 8px;
+          font-size: 13px;
+        }
+        .filter {
+          gap: 8px;
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .filter select {
+          min-width: auto;
+        }
+      }
+
+      /* Footer */
+      .footer {
+        margin-top: 40px;
+        padding: 30px 0;
+        border-top: 1px solid #ffe1ea;
+        text-align: center;
+        color: #8a8a8a;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== GİRİŞ EKRANI (şeftali-pembe, ortada Real Queen) ===== -->
+    <div id="intro" class="intro"><h1>Real Queen</h1></div>
+
+    <!-- ===== ÜST BAR ===== -->
+    <header class="topbar">
+      <div class="inner container">
+        <div class="brand">Real Queen Boutique</div>
+        <nav class="nav">
+          <a href="anasayfa.html" class="nav-link">← Ana Sayfa</a>
+          <a href="iletisim.html" class="nav-link">İletişim</a>
+          <div class="filter">
+            <label for="sizeRangeSel">Beden Aralığı:</label>
+            <select id="sizeRangeSel">
+              <option value="">Tümü</option>
+              <option value="36-38">36-38</option>
+              <option value="38-40">38-40</option>
+              <option value="40-42">40-42</option>
+              <option value="42-44">42-44</option>
+              <option value="44-46">44-46</option>
+            </select>
+
+            <label for="sizeSel">Tek Beden:</label>
+            <select id="sizeSel">
+              <option value="">Tümü</option>
+              <option>36</option>
+              <option>38</option>
+              <option>40</option>
+              <option>42</option>
+              <option>44</option>
+              <option>46</option>
+            </select>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="page-head">
+        <h2>Ürünler</h2>
+        <p style="color: var(--muted); margin: 0.2rem 0 0">
+          Kartlara tıkla → beden bilgisi ve detayları gör.
+        </p>
+      </div>
+
+      <!-- ===== ÜRÜN GRIDİ (50 kart JS ile basılıyor) ===== -->
+      <section id="grid" class="grid"></section>
+
+      <!-- ===== ALT CTA: Instagram ===== -->
+      <div class="bottom-cta">
+        <button class="btn" id="btnIG">
+          Daha Fazlası İçin Instagram'ımızı Ziyaret Et
+        </button>
+      </div>
+    </main>
+
+    <!-- ===== MODAL DETAY ===== -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="sheet">
+        <button class="x" id="closeModal">Kapat ✕</button>
+        <div class="gallery"><img id="mImg" src="" alt="" /></div>
+        <div class="info">
+          <h3 id="mTitle">Başlık</h3>
+          <div id="mSizes" class="size-row"></div>
+          <div class="badge-row" id="mTags"></div>
+          <p id="mDesc" style="margin: 10px 0 14px; color: var(--muted)"></p>
+          <div class="actions">
+            <button class="btn" id="mIG">Instagram'da Gör</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* ===== IG YÖNLENDİRME ===== */
+      const IG_USER = "real.queen.boutique.cyprus";
+      const IG_WEB = `https://www.instagram.com/${IG_USER}/`;
+      const IG_APP = `instagram://user?username=${IG_USER}`;
+      function openIG() {
+        const isMob = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMob) {
+          window.location.href = IG_APP;
+          setTimeout(() => window.open(IG_WEB, "_blank"), 700);
+        } else {
+          window.open(IG_WEB, "_blank");
+        }
+      }
+      document.getElementById("btnIG").onclick = openIG;
+
+      /* ===== GİRİŞ EKRANI OTOMATİK KALDIR ===== */
+      window.addEventListener("load", () =>
+        setTimeout(
+          () => document.getElementById("intro").classList.add("done"),
+          1300
+        )
+      );
+
+      /* ===== SAHTE VERİ (50 ÜRÜN) — görselleri kendi dosyalarınla değiştir ===== */
+      const SIZES = ["36", "38", "40", "42", "44", "46"];
+      const TAGS = [
+        "Yeni",
+        "Büyük Beden Dostu",
+        "Favori",
+        "İndirim",
+        "Soft Kumaş",
+        "Rahat Kalıp",
+      ];
+
+      // Beden aralıkları
+      const SIZE_RANGES = ["36-38", "38-40", "40-42", "42-44", "44-46"];
+
+      const products = Array.from({ length: 25 }, (_, i) => {
+        // Sadece 5 satır olsun (her satırda 5 ürün)
+        const row = Math.floor(i / 5); // Hangi satırda olduğumuz (0, 1, 2, 3, 4)
+        const sizeRange = SIZE_RANGES[row]; // Satıra göre beden aralığı (tekrar yok)
+
+        const randSizes = SIZES.filter((_, idx) =>
+          (i + idx) % 2 ? true : Math.random() > 0.35
+        ).slice(0, Math.max(3, Math.floor(Math.random() * 6)));
+
+        // Beden aralığına göre görsel yolu
+        let imgPath;
+        if (sizeRange === "36-38") {
+          // 36-38 klasöründeki görselleri sırayla kullan
+          const imgNumber = (i % 5) + 1; // 1'den 5'e kadar (ürün1.jpeg, ürün2.jpeg, ürün3.jpeg, ürün4.jpeg, ürün5.jpeg)
+          imgPath = `assets/img/36-38/ürün${imgNumber}.jpeg`;
+          console.log(`36-38 ürün ${i} (satır ${row}): ${imgPath}`); // Debug için
+        } else if (sizeRange === "38-40") {
+          // 38-40 klasöründeki görselleri sırayla kullan
+          const imgNumber = (i % 5) + 1; // 1'den 5'e kadar (ürün1.jpeg, ürün2.jpeg, ürün3.jpeg, ürün4.jpeg, ürün5.jpeg)
+          imgPath = `assets/img/38-40/ürün${imgNumber}.jpeg`;
+          console.log(`38-40 ürün ${i} (satır ${row}): ${imgPath}`); // Debug için
+        } else if (sizeRange === "40-42") {
+          // 40-42 klasöründeki görselleri sırayla kullan
+          const imgNumber = (i % 5) + 1; // 1'den 5'e kadar (urun1.jpeg, urun2.jpeg, urun3.jpeg, urun4.jpeg, urun5.jpeg)
+          imgPath = `assets/img/40-42/urun${imgNumber}.jpeg`;
+          console.log(`40-42 ürün ${i} (satır ${row}): ${imgPath}`); // Debug için
+        } else if (sizeRange === "42-44") {
+          // 42-44 klasöründeki görselleri sırayla kullan
+          const imgNumber = (i % 5) + 1; // 1'den 5'e kadar (urun1.jpeg, urun2.jpeg, urun3.jpeg, urun4.jpeg, urun5.jpeg)
+          imgPath = `assets/img/42-44/urun${imgNumber}.jpeg`;
+          console.log(`42-44 ürün ${i} (satır ${row}): ${imgPath}`); // Debug için
+        } else {
+          // 44-46 klasöründeki görselleri sırayla kullan
+          const imgNumber = (i % 5) + 1; // 1'den 5'e kadar (urun1.jpeg, urun2.jpeg, urun3.jpeg, urun4.jpeg, urun5.jpeg)
+          imgPath = `assets/img/44-46/urun${imgNumber}.jpeg`;
+          console.log(`44-46 ürün ${i} (satır ${row}): ${imgPath}`); // Debug için
+        }
+
+        return {
+          id: `RQB-${1000 + i}`,
+          title:
+            (i % 3 === 0
+              ? "Şifon Elbise"
+              : i % 3 === 1
+              ? "Cepli Takım"
+              : "Saten Elbise") +
+            " #" +
+            (i + 1),
+          price: 1090 + (i % 7) * 80,
+          sizes: [...new Set(randSizes)].sort(),
+          img: imgPath,
+          sizeRange: sizeRange, // Beden aralığı eklendi
+          desc: "Rahat kalıp, günlük ve özel gün kullanımına uygun.",
+          tags: [
+            TAGS[i % TAGS.length],
+            i % 5 === 0 ? "Hızlı Teslim" : "",
+          ].filter(Boolean),
+        };
+      });
+
+      /* ===== GRID BAS ===== */
+      const grid = document.getElementById("grid");
+      function cardHTML(p) {
+        const chips = p.sizes
+          .map((s) => `<span class="badge">${s}</span>`)
+          .join("");
+        return `<article class="card" data-id="${p.id}">
+     <img src="${p.img}" alt="${p.sizeRange} Beden" loading="lazy" onerror="this.style.display='none'; console.log('Görsel yüklenemedi:', this.src);">
+     <div class="meta">
+       <div class="t">${p.sizeRange} Beden</div>
+       <div class="badge-row">
+         <span class="badge" style="background: var(--accent); color: #fff;">${p.sizeRange}</span>
+         ${chips}
+       </div>
+     </div>
+   </article>`;
+      }
+      function render(list) {
+        grid.innerHTML = list.map(cardHTML).join("");
+        attachCardClicks();
+      }
+      render(products);
+
+      /* ===== BEDEN FİLTRESİ ===== */
+      const sizeSel = document.getElementById("sizeSel");
+      const sizeRangeSel = document.getElementById("sizeRangeSel");
+
+      // Tek beden filtresi
+      sizeSel.onchange = () => {
+        const s = sizeSel.value;
+        const list = s ? products.filter((p) => p.sizes.includes(s)) : products;
+        render(list);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      // Beden aralığı filtresi
+      sizeRangeSel.onchange = () => {
+        const range = sizeRangeSel.value;
+        let list;
+
+        if (range === "36-38") {
+          list = products.filter((p) => p.sizeRange === "36-38");
+        } else if (range === "38-40") {
+          list = products.filter((p) => p.sizeRange === "38-40");
+        } else if (range === "40-42") {
+          list = products.filter((p) => p.sizeRange === "40-42");
+        } else if (range === "42-44") {
+          list = products.filter((p) => p.sizeRange === "42-44");
+        } else if (range === "44-46") {
+          list = products.filter((p) => p.sizeRange === "44-46");
+        } else {
+          list = products; // Tümü
+        }
+
+        render(list);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      /* ===== KART TIK → MODAL ===== */
+      const modal = document.getElementById("modal");
+      const mImg = document.getElementById("mImg");
+      const mTitle = document.getElementById("mTitle");
+      const mPrice = document.getElementById("mPrice");
+      const mSizes = document.getElementById("mSizes");
+      const mTags = document.getElementById("mTags");
+      const mDesc = document.getElementById("mDesc");
+      function openModal(p) {
+        mImg.src = p.img;
+        mTitle.textContent = `${p.sizeRange} Beden`;
+        mDesc.textContent = p.desc;
+        mSizes.innerHTML = p.sizes
+          .map((s) => `<span class="size">${s}</span>`)
+          .join("");
+        mTags.innerHTML = p.tags
+          .map((t) => `<span class="badge">${t}</span>`)
+          .join("");
+        document.getElementById("mIG").onclick = openIG;
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+      }
+      function attachCardClicks() {
+        document.querySelectorAll(".card").forEach((c) => {
+          c.onclick = () => {
+            const id = c.getAttribute("data-id");
+            openModal(products.find((p) => p.id === id));
+          };
+        });
+      }
+      document.getElementById("closeModal").onclick = () => {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+      };
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) document.getElementById("closeModal").click();
+      });
+
+      /* ===== KÜÇÜK GİRİŞ ANİMASYONU (grid kartları) ===== */
+      const animateOpts = { threshold: 0.12 };
+      const ob = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.style.transition = ".35s ease";
+            e.target.style.transform = "translateY(0)";
+            e.target.style.opacity = 1;
+            ob.unobserve(e.target);
+          }
+        });
+      }, animateOpts);
+      function applyAppear() {
+        document.querySelectorAll(".card").forEach((el) => {
+          el.style.opacity = 0;
+          el.style.transform = "translateY(10px)";
+          ob.observe(el);
+        });
+      }
+      applyAppear();
+      sizeSel.addEventListener("change", applyAppear);
+
+      /* ===== Eğer "Ürünler" butonundan gelme animasyonu da olsun istiyorsan
+   bu sayfaya geçmeden önce body'ye .leaving ekleyip burada karşılayacak
+   bir fade-in de yazabiliriz. Şimdilik açılış intro bunu karşılıyor. ===== */
+    </script>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Bu site ATK Codes tarafından yazılmıştır.</p>
+        <p>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            style="
+              display: inline-block;
+              vertical-align: middle;
+              margin-right: 6px;
+              fill: #e4405f;
+            "
+          >
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+            /></svg
+          ><span style="color: #e4405f"
+            >Instagram:
+            <a
+              href="https://www.instagram.com/atkcodes"
+              target="_blank"
+              rel="noopener"
+              style="color: #e4405f; text-decoration: none"
+              >@atkcodes</a
+            ></span
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

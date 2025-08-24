@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>İletişim — Real Queen Boutique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --ink: #1f1f1f;
+        --muted: #6a6a6a;
+        --rose: #ffd6df;
+        --peach: #ffe5d2;
+        --accent: #ff86a3;
+        --accent2: #ff6f93;
+        --card: #ffffff;
+        --line: #ffe1ea;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto,
+          sans-serif;
+        color: var(--ink);
+        background: linear-gradient(
+          180deg,
+          var(--rose),
+          #fff 40%,
+          var(--peach)
+        );
+      }
+
+      /* Dekoratif şekiller */
+      .decors {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+      .blob {
+        position: absolute;
+        filter: blur(30px);
+        opacity: 0.35;
+      }
+      .blob.one {
+        width: 420px;
+        height: 420px;
+        left: -120px;
+        top: -80px;
+        background: radial-gradient(closest-side, #ffc2d2, transparent);
+      }
+      .blob.two {
+        width: 380px;
+        height: 380px;
+        right: -120px;
+        bottom: -60px;
+        background: radial-gradient(closest-side, #ffd7b3, transparent);
+      }
+      .dot {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0.6;
+      }
+      .dot.d1 {
+        left: 12%;
+        top: 24%;
+      }
+      .dot.d2 {
+        left: 18%;
+        top: 32%;
+      }
+      .dot.d3 {
+        left: 85%;
+        top: 18%;
+      }
+      .dot.d4 {
+        left: 78%;
+        top: 28%;
+      }
+
+      /* Sayfa kap */
+      .container {
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 42px 20px;
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        gap: 10px;
+        justify-items: center;
+        text-align: center;
+        padding: 18px 0 8px;
+      }
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 40px;
+        margin: 0 0 6px;
+      }
+      .hero p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* CTA butonları */
+      .actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 14px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 20px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 10px 28px rgba(255, 134, 163, 0.28);
+        transition: 0.18s transform, 0.18s opacity;
+      }
+      .btn svg {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.95;
+      }
+
+      /* İçerik bölümü */
+      .section {
+        margin-top: 28px;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px 18px;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .icon {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: #fff0f6;
+        border: 1px solid var(--line);
+      }
+      .card strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      /* IG takip bölümü */
+      .follow {
+        margin: 34px 0 10px;
+        text-align: center;
+      }
+      .follow h2 {
+        font-family: "Playfair Display", serif;
+        margin: 0 0 10px;
+        font-size: 28px;
+      }
+      .feed {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+      }
+      .feed .ph {
+        aspect-ratio: 1/1;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #fff6fa, #fff),
+          repeating-linear-gradient(45deg, #ffe1ea 0 2px, transparent 2px 6px);
+        border: 1px solid var(--line);
+      }
+      @media (max-width: 900px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .feed {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .feed {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero h1 {
+          font-size: 34px;
+        }
+      }
+
+      /* Header */
+      .header {
+        position: sticky;
+        top: 0;
+        background: #fff8fbf0;
+        backdrop-filter: saturate(120%) blur(4px);
+        border-bottom: 1px solid #ffe7ef;
+        z-index: 20;
+      }
+      .header .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .brand {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.3px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .nav-link {
+        color: var(--muted);
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .nav-link:hover {
+        color: var(--accent);
+        background: rgba(255, 135, 163, 0.1);
+      }
+      .ig-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--accent);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-weight: 700;
+        border: 0;
+        cursor: pointer;
+      }
+      .ig-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* Footer */
+      .footer {
+        margin-top: 40px;
+        padding: 30px 0;
+        border-top: 1px solid #ffe1ea;
+        text-align: center;
+        color: #8a8a8a;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="inner container">
+        <div class="brand">Real Queen Boutique</div>
+        <nav class="nav">
+          <a href="anasayfa.html" class="nav-link">Ana Sayfa</a>
+          <a href="products.html" class="nav-link">Ürünler</a>
+          <a href="iletisim.html" class="nav-link">İletişim</a>
+          <button class="ig-btn" id="igTop">
+            <!-- IG icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm11 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 15a2.8 2.8 0 0 0 0-5.6z"
+              />
+            </svg>
+            Instagram'da Gör
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Dekoratif arka plan -->
+    <div class="decors">
+      <div class="blob one"></div>
+      <div class="blob two"></div>
+      <span class="dot d1"></span><span class="dot d2"></span
+      ><span class="dot d3"></span><span class="dot d4"></span>
+    </div>
+
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero">
+        <h1>İletişim</h1>
+        <p>Destek, sipariş ve işbirliği için bize ulaş.</p>
+        <div class="actions">
+          <!-- Instagram -->
+          <a
+            class="btn"
+            href="https://www.instagram.com/real.queen.boutique.cyprus"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm11 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 15a2.8 2.8 0 0 0 0-5.6z"
+              />
+            </svg>
+            Instagram’dan Mesaj
+          </a>
+          <!-- WhatsApp -->
+          <a
+            class="btn"
+            href="https://wa.me/905338412686"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 32 32">
+              <path
+                d="M16 .396c-8.817 0-16 7.183-16 16 0 2.837.741 5.598 2.145 8.032l-2.281 8.333 8.521-2.229c2.355 1.29 5.009 1.967 7.615 1.967h.001c8.817 0 16-7.183 16-16s-7.183-16-16-16zm0 29.118c-2.285 0-4.527-.611-6.493-1.767l-.465-.276-5.056 1.323 1.348-4.931-.303-.507c-1.301-2.173-1.989-4.669-1.989-7.225 0-7.56 6.149-13.708 13.708-13.708s13.708 6.148 13.708 13.708c0 7.56-6.149 13.708-13.708 13.708zm7.548-10.392c-.412-.206-2.436-1.201-2.814-1.339-.379-.139-.655-.206-.931.206-.275.412-1.069 1.339-1.312 1.614-.242.275-.483.31-.896.103-.412-.206-1.74-.641-3.312-2.044-1.225-1.092-2.05-2.437-2.292-2.849-.242-.412-.026-.635.18-.841.185-.185.412-.483.618-.724.206-.242.275-.413.413-.689.137-.275.069-.517-.034-.724-.103-.206-.931-2.246-1.276-3.08-.336-.807-.676-.698-.931-.712l-.797-.014c-.275 0-.724.103-1.103.517-.379.413-1.448 1.414-1.448 3.446s1.482 3.999 1.688 4.275c.206.275 2.92 4.46 7.084 6.248.991.428 1.763.683 2.365.875.994.317 1.899.272 2.614.165.797-.119 2.436-.995 2.779-1.954.344-.959.344-1.783.241-1.954-.103-.172-.379-.275-.793-.482z"
+              />
+            </svg>
+            WhatsApp’tan Yaz
+          </a>
+        </div>
+      </section>
+
+      <!-- Teslimat kartları -->
+      <section class="section">
+        <div class="cards">
+          <article class="card">
+            <div class="icon">📍</div>
+            <div>
+              <strong>Lefkoşa & Girne</strong>
+              <div class="muted">Ertesi gün teslimat.</div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="icon">🚚</div>
+            <div>
+              <strong>Diğer Bölgeler</strong>
+              <div class="muted">3 iş günü içinde teslim edilir.</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Instagram takip -->
+      <section class="follow">
+        <h2>Instagram’da Takip Et</h2>
+        <div class="actions" style="margin-top: 14px">
+          <a
+            class="btn"
+            href="https://www.instagram.com/real.queen.boutique.cyprus"
+            target="_blank"
+            rel="noopener"
+            >Profili Aç</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <script>
+      /* Instagram yönlendirme */
+      const IG_USER = "real.queen.boutique.cyprus";
+      const IG_WEB = `https://www.instagram.com/${IG_USER}/`;
+      const IG_APP = `instagram://user?username=${IG_USER}`;
+
+      function openIG() {
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) {
+          window.location.href = IG_APP;
+          setTimeout(() => window.open(IG_WEB, "_blank"), 700);
+        } else {
+          window.open(IG_WEB, "_blank");
+        }
+      }
+
+      document.getElementById("igTop").onclick = openIG;
+    </script>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Bu site ATK Codes tarafından yazılmıştır.</p>
+        <p>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            style="
+              display: inline-block;
+              vertical-align: middle;
+              margin-right: 6px;
+              fill: #e4405f;
+            "
+          >
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+            /></svg
+          ><span style="color: #e4405f"
+            >Instagram:
+            <a
+              href="https://www.instagram.com/atkcodes"
+              target="_blank"
+              rel="noopener"
+              style="color: #e4405f; text-decoration: none"
+              >@atkcodes</a
+            ></span
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Real Queen Boutique — 36–46 Her Bedene Şıklık</title>
+    <meta
+      name="description"
+      content="36–46 beden aralığında şık elbiseler ve setler. Lefkoşa & Girne hızlı teslim."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --pink: #ffb7c8;
+        --rose: #ffd6df;
+        --peach: #ffe5d2;
+        --accent: #ff86a3;
+        --ink: #2a2a2a;
+        --bg: #fff;
+        --muted: #666;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: linear-gradient(
+          180deg,
+          var(--rose),
+          #fff 25%,
+          #fff 75%,
+          var(--peach)
+        );
+        font-family: Poppins, system-ui, Segoe UI, Roboto, sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 18px;
+      }
+
+      /* Header */
+      .header {
+        position: sticky;
+        top: 0;
+        background: #fff8fbf0;
+        backdrop-filter: saturate(120%) blur(4px);
+        border-bottom: 1px solid #ffe7ef;
+        z-index: 20;
+      }
+      .header .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .brand {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.3px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .nav-link {
+        color: var(--muted);
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      .nav-link:hover {
+        color: var(--accent);
+        background: rgba(255, 135, 163, 0.1);
+      }
+      .ig-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--accent);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-weight: 700;
+        border: 0;
+        cursor: pointer;
+      }
+      .ig-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* Hero */
+      .hero {
+        padding: clamp(40px, 6vw, 90px) 0;
+        background: radial-gradient(
+            60% 60% at 80% 0%,
+            #fff2f6 0%,
+            transparent 60%
+          ),
+          radial-gradient(50% 50% at 0% 20%, #ffe9ef 0%, transparent 60%);
+      }
+      .hero .wrap {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .h-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(34px, 5.2vw, 64px);
+        line-height: 1.06;
+        margin: 0;
+      }
+      .h-sub {
+        margin: 10px 0 20px;
+        color: var(--muted);
+      }
+      .badges {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .badges span {
+        background: #fff;
+        border: 1px solid #ffe0ea;
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+      .hero-img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        aspect-ratio: 4/3;
+        border-radius: 24px;
+        object-fit: cover;
+        box-shadow: 0 20px 60px #ff99b433;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      /* Section titles */
+      .section {
+        padding: 38px 0;
+      }
+      .sec-title {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        margin: 0 0 14px;
+      }
+      .sec-sub {
+        color: var(--muted);
+        margin: 0 0 20px;
+      }
+
+      /* New In grid */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #ffe1ea;
+        border-radius: 18px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .card img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+      }
+      .card .meta {
+        padding: 10px 12px;
+      }
+      .card .t {
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .card .p {
+        margin-top: 4px;
+        font-weight: 700;
+      }
+      .card .cta {
+        margin: 10px 12px 12px;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        border: 0;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* Newsletter */
+      .news {
+        background: linear-gradient(180deg, #fff6f9, #fff);
+        border: 1px solid #ffe1ea;
+        border-radius: 22px;
+        padding: 22px;
+        text-align: center;
+      }
+      .news input {
+        width: min(420px, 90%);
+        height: 44px;
+        border: 1px solid #ffd4e0;
+        border-radius: 999px;
+        padding: 0 14px;
+      }
+      .news button {
+        height: 44px;
+        margin-left: 8px;
+      }
+
+      /* Shop Dresses (3-up) */
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .tile {
+        border-radius: 22px;
+        overflow: hidden;
+        position: relative;
+      }
+      .tile img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        display: block;
+        filter: contrast(1.02) saturate(1.02);
+      }
+      .tile .label {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        background: #ffffffd9;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      /* Collection tiles (4-up) */
+      .grid4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .col {
+        background: #fff;
+        border: 1px dashed #ffd6e3;
+        border-radius: 18px;
+        padding: 26px;
+        text-align: center;
+      }
+      .col h4 {
+        margin: 8px 0 4px;
+      }
+      .col small {
+        color: var(--muted);
+      }
+
+      /* Footer */
+      .footer {
+        margin-top: 40px;
+        padding: 30px 0;
+        border-top: 1px solid #ffe1ea;
+        text-align: center;
+        color: #8a8a8a;
+      }
+
+      /* Testimonials */
+      .testimonial {
+        background: #fff;
+        border: 1px solid #ffe1ea;
+        border-radius: 18px;
+        padding: 24px;
+        margin: 0;
+        font-style: italic;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 4px 20px rgba(255, 135, 163, 0.1);
+      }
+      .testimonial::before {
+        content: '"';
+        font-size: 48px;
+        color: var(--accent);
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Scroll Animations */
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.6s ease;
+      }
+      [data-animate].visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .hero .wrap {
+          grid-template-columns: 1fr;
+        }
+        .hero-img {
+          max-width: 525px;
+          margin-left: auto;
+          margin-right: 0;
+        }
+        .nav {
+          gap: 15px;
+        }
+        .nav-link {
+          padding: 6px 10px;
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 720px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid3 {
+          grid-template-columns: 1fr;
+        }
+        .grid4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero-img {
+          max-width: 420px;
+          margin-left: auto;
+          margin-right: 0;
+        }
+        .nav {
+          gap: 10px;
+        }
+        .nav-link {
+          padding: 6px 8px;
+          font-size: 13px;
+        }
+        .ig-btn {
+          padding: 8px 12px;
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="inner container">
+        <div class="brand">Real Queen Boutique</div>
+        <nav class="nav">
+          <a href="anasayfa..html" class="nav-link">Ana Sayfa</a>
+          <a href="products.html" class="nav-link">Ürünler</a>
+          <a href="iletisim.html" class="nav-link">İletişim</a>
+          <button class="ig-btn" id="igTop">
+            <!-- IG icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm11 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 15a2.8 2.8 0 0 0 0-5.6z"
+              />
+            </svg>
+            Instagram'da Gör
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container wrap hero wrap">
+        <div data-animate>
+          <h1 class="h-title">
+            Always & Forever —<br />Her Bedene Şıklık (36–46)
+          </h1>
+          <p class="h-sub">
+            Gerçek çekim, rahat kalıp ve feminen dokunuşlar. Lefkoşa & Girne
+            hızlı teslim.
+          </p>
+          <button class="ig-btn" id="igHero">
+            Instagram'da Yeni Gelenleri Gör
+          </button>
+          <div class="badges">
+            <span>Kapıda Ödeme</span><span>Ertesi Gün Teslim</span
+            ><span>Kolay Değişim</span>
+          </div>
+        </div>
+        <img
+          class="hero-img"
+          src="assets/img/anasayfa/Yeni Sezon_ Hep ve Sonsuza Kadar.png"
+          alt="Yeni Sezon - Hep ve Sonsuza Kadar"
+          data-animate
+        />
+      </div>
+    </section>
+
+    <!-- New In -->
+    <section class="section">
+      <div class="container">
+        <h2 class="sec-title" data-animate>New In ✨</h2>
+        <p class="sec-sub" data-animate>
+          Son eklenen parçalar — detayları Instagram'da.
+        </p>
+        <div class="grid">
+          <!-- Kart 1-6: görsellerini değiştir -->
+          <article class="card">
+            <img src="assets/img/36-38/ürün1.jpeg" alt="36-38 Beden Ürün" />
+            <div class="meta">
+              <div class="t">36-38 Beden Ürün</div>
+              <div class="p">Büyük Beden Dostu</div>
+            </div>
+            <div class="cta">
+              <button class="btn igCard">Detayı IG'de Gör</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/38-40/ürün1.jpeg" alt="38-40 Beden Ürün" />
+            <div class="meta">
+              <div class="t">38-40 Beden Ürün</div>
+              <div class="p">Rahat Kalıp</div>
+            </div>
+            <div class="cta">
+              <button class="btn igCard">Detayı IG'de Gör</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/40-42/urun1.jpeg" alt="40-42 Beden Ürün" />
+            <div class="meta">
+              <div class="t">40-42 Beden Ürün</div>
+              <div class="p">Soft Kumaş</div>
+            </div>
+            <div class="cta">
+              <button class="btn igCard">Detayı IG'de Gör</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/42-44/urun1.jpeg" alt="42-44 Beden Ürün" />
+            <div class="meta">
+              <div class="t">42-44 Beden Ürün</div>
+              <div class="p">Yeni Koleksiyon</div>
+            </div>
+            <div class="cta">
+              <button class="btn igCard">Detayı IG'de Gör</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/44-46/urun1.jpeg" alt="44-46 Beden Ürün" />
+            <div class="meta">
+              <div class="t">44-46 Beden Ürün</div>
+              <div class="p">Favori Model</div>
+            </div>
+            <div class="cta">
+              <button class="btn igCard">Detayı IG'de Gör</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/36-38/ürün2.jpeg" alt="36-38 Beden Ürün 2" />
+            <div class="meta">
+              <div class="t">36-38 Beden Ürün 2</div>
+              <div class="p">Hızlı Teslim</div>
+            </div>
+            <div class="cta">
+              <button class="btn igCard">Detayı IG'de Gör</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter (opsiyonel statik form servisi) -->
+    <section class="section">
+      <div class="container news">
+        <h3 style="margin: 0 0 8px; font-family: 'Playfair Display', serif">
+          Yeni Gelenleri İlk Sen Gör
+        </h3>
+        <form
+          action="https://formspree.io/f/xxxxxx"
+          method="POST"
+          onsubmit="gtagEvent('newsletter_submit')"
+        >
+          <input
+            name="email"
+            type="email"
+            placeholder="E-posta adresin"
+            required
+          />
+          <button class="btn" type="submit">Abone Ol</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Shop Dresses -->
+    <section class="section">
+      <div class="container">
+        <h2 class="sec-title">Shop Dresses 👗</h2>
+        <div class="grid3">
+          <div class="tile">
+            <img src="assets/img/anasayfa/urun1.jpeg" alt="Bahar Koleksiyonu" />
+            <div class="label">Bahar Koleksiyonu</div>
+          </div>
+          <div class="tile">
+            <img src="assets/img/anasayfa/urun2.jpeg" alt="Günlük Şıklık" />
+            <div class="label">Günlük Şıklık</div>
+          </div>
+          <div class="tile">
+            <img src="assets/img/anasayfa/urun3.jpeg" alt="Özel Gün" />
+            <div class="label">Özel Gün</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection Tiles -->
+    <section class="section">
+      <div class="container">
+        <h2 class="sec-title">Shop by Collection</h2>
+        <div class="grid4">
+          <a class="col" href="#" onclick="openIG()"
+            ><h4>Elbiseler</h4>
+            <small>36–46</small></a
+          >
+          <a class="col" href="#" onclick="openIG()"
+            ><h4>Best Sellers</h4>
+            <small>Favoriler</small></a
+          >
+          <a class="col" href="#" onclick="openIG()"
+            ><h4>On Sale</h4>
+            <small>İndirim</small></a
+          >
+          <a class="col" href="#" onclick="openIG()"
+            ><h4>New In</h4>
+            <small>Yeni Gelenler</small></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+      <div class="container">
+        <h2 class="sec-title" data-animate>Müşteri Yorumları 💬</h2>
+        <div class="grid3">
+          <blockquote class="testimonial" data-animate>
+            "Ürünler tam bedenime uygun, teslimat çok hızlıydı!" <br />— Ayşe K.
+          </blockquote>
+          <blockquote class="testimonial" data-animate>
+            "Kalite ve kumaş harika, IG'de gördüğüm gibi." <br />— Elif T.
+          </blockquote>
+          <blockquote class="testimonial" data-animate>
+            "Büyük beden bulmak kolaylaştı, teşekkürler." <br />— Derya A.
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Bu site ATK Codes tarafından yazılmıştır.</p>
+        <p>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            style="
+              display: inline-block;
+              vertical-align: middle;
+              margin-right: 6px;
+              fill: #e4405f;
+            "
+          >
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+            /></svg
+          ><span style="color: #e4405f"
+            >Instagram:
+            <a
+              href="https://www.instagram.com/atkcodes"
+              target="_blank"
+              rel="noopener"
+              style="color: #e4405f; text-decoration: none"
+              >@atkcodes</a
+            ></span
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      /* === Instagram yönlendirme === */
+      const IG_USER = "real.queen.boutique.cyprus"; // değiştirilebilir
+      const IG_WEB = `https://www.instagram.com/${IG_USER}/`;
+      const IG_APP = `instagram://user?username=${IG_USER}`;
+
+      function openIG() {
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) {
+          window.location.href = IG_APP;
+          setTimeout(() => window.open(IG_WEB, "_blank"), 700);
+        } else {
+          window.open(IG_WEB, "_blank");
+        }
+      }
+
+      document.getElementById("igTop").onclick = openIG;
+      document.getElementById("igHero").onclick = openIG;
+      document.querySelectorAll(".igCard").forEach((b) => (b.onclick = openIG));
+
+      /* (opsiyonel) basit event ölçümü */
+      function gtagEvent(name) {
+        console.log("event:", name);
+      }
+
+      /* === Scroll Animations === */
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        });
+      });
+
+      document
+        .querySelectorAll("[data-animate]")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
